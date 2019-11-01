@@ -176,6 +176,7 @@
 
 <script>
 import { mdiPencil, mdiDelete, mdiMagnify } from '@mdi/js'
+import axios from 'axios'
 
 export default {
     data: () => ({
