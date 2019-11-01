@@ -1,29 +1,41 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import store from '../store'
+
+// Components
+import Login from '../views/Login.vue'
+import BooksCrud from '../views/BooksCrud.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    {
+        path: '/',
+        redirect: '/books',
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login // () => import('../views/Login.vue')z
+    },
+    {
+        path: '/books',
+        name: 'books',
+        component: BooksCrud
+    }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: '/admin/',
   routes
 })
 
 export default router
+
+router.beforeEach(function(to, from, next){
+    if( store.state.api_token || to.name == 'login' ){
+        return next()
+    }
+    return next('/login')
+})
