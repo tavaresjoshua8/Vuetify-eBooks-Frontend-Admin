@@ -418,9 +418,16 @@ export default {
                     message: ''
                 }
             } else {
-                this.response = {
-                    error: true,
-                    message: error.response.data.message
+                if( error.response ){
+                    this.response = {
+                        error: true,
+                        message: error.response.data.message
+                    }
+                } else {
+                    this.response = {
+                        error: true,
+                        message: error
+                    }
                 }
             }
         },
