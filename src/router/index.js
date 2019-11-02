@@ -9,26 +9,26 @@ import BooksCrud from '../views/BooksCrud.vue'
 Vue.use(VueRouter)
 
 const routes = [
-    {
-        path: '/',
-        redirect: '/books',
-    },
-    {
-        path: '/login',
-        name: 'login',
-        component: Login // () => import('../views/Login.vue')z
-    },
-    {
-        path: '/books',
-        name: 'books',
-        component: BooksCrud
-    }
+	{
+		path: '/',
+		redirect: '/books',
+	},
+	{
+		path: '/login',
+		name: 'login',
+		component: Login // () => import('../views/Login.vue')z
+	},
+	{
+		path: '/books',
+		name: 'books',
+		component: BooksCrud
+	}
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: '/admin/',
-  routes
+	mode: 'history',
+	base: '/admin/',
+	routes
 })
 
 export default router

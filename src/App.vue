@@ -82,7 +82,7 @@ export default {
                     api_token: this.$store.state.api_token
                 }
             }).then( response => {
-                if( response.data.message = 'Success.' ) {
+                if( response.data.message == 'Success.' ) {
                     this.$router.push({name: 'login'})
                     this.$cookies.remove('api_token')
                     this.$store.state.api_token = null

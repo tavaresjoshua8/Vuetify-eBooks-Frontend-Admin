@@ -102,9 +102,9 @@ export default {
                 }
             }).then( response => {
                 this.saveUser(response.data, token, () => {this.$router.go(-1)})
-            }).catch( error => {
+            }).catch( () => {
                 this.loading = false
-            } )
+            })
         } else
             this.loading = false
     }

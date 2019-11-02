@@ -21,7 +21,7 @@
                     <v-text-field
                         label="Buscar"
                         v-model="search"
-                        :append-icon="mdiMagnify"
+                        append-icon="mdi-magnify"
                         singleLine
                         hideDetails
                     ></v-text-field>
@@ -130,13 +130,13 @@
                     class="mr-2"
                     @click="editItem(item)"
                 >
-                    {{ mdiPencil }}
+                    mdi-pencil
                 </v-icon>
                 <v-icon
                     small
                     @click="deleteItem(item)"
                 >
-                    {{ mdiDelete }}
+                    mdi-delete
                 </v-icon>
             </template>
             <template v-slot:no-data>
@@ -175,7 +175,6 @@
 </template>
 
 <script>
-import { mdiPencil, mdiDelete, mdiMagnify } from '@mdi/js'
 import axios from 'axios'
 
 export default {
@@ -254,9 +253,6 @@ export default {
             image: null,
         },
         lastDeletedItem: {},
-        mdiPencil,
-        mdiDelete,
-        mdiMagnify,
     }),
 
     computed: {
